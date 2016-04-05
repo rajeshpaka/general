@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkbox SelectAll</title>
+    <script type="text/javascript">
+        function displayProperties( elem )
+        {
+            for( var i in elem )
+            {
+                if( elem.type === "checkbox" && (!(i === "selectionStart" || i === "selectionEnd" || i === "selectionDirection")) )
+                {
+                    console.log( i + " : " + elem[i] );
+                }
+            }
+        }
+        function selectAll( obj )
+        {
+            var checkboxes = document.getElementsByName( "box1" );
+            var isChecked = obj.checked;
+            for( var i = 0; i < checkboxes.length; i++ )
+            {
+                checkboxes[i].checked = isChecked;
+            }
+        }
+    </script>
+</head>
+<body>
+<pre>
+	<input type="checkbox" id="selectall" name="select" onclick="selectAll(this)"><label xml:lang="en" for="selectall">Select All</label></input>
+    <br>
+    <div name="papers">
+        <input type="checkbox" id="eenadu" name="box1" class="box1" value="1"><label xml:lang="en" for="eenadu">Eenadu</label></input>
+        <input type="checkbox" id="vaartha" name="box1" class="box1" value="2"><label xml:lang="en" for="vaartha">Vaartha</label></input>
+        <input type="checkbox" id="telangana" name="box1" class="box1" value="3" onclick="displayProperties(this)"><label xml:lang="en" for="telangana">Telangana&nbsp;&nbsp;&lt;--&nbsp;Click on this to see additional content in console log.</label></input>
+        <input type="checkbox" id="dc" name="box1" class="box1" value="4"><label xml:lang="en" for="dc">DC</label></input>
+        <input type="checkbox" id="times" name="box1" class="box1" value="5"><label xml:lang="en" for="times">Times</label></input>
+    </div>
+</pre>
+</body>
+</html>
